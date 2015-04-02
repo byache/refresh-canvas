@@ -9,7 +9,7 @@ code: |
   
   function init() {
     ctx = $('#canvas')[0].getContext("2d");
-    return setInterval(draw, 10);
+    return setInterval(draw, 10); // Exécuter draw() toutes les 10 ms
   }
   
   function draw() {
@@ -18,28 +18,31 @@ code: |
     ctx.arc(x, y, 10, 0, Math.PI*2, true); 
     ctx.closePath();
     ctx.fill();
-    x += dx;
+    x += dx; // On déplace la balle
     y += dy;
   }
   
   init();
 
 explain_before: |
-  We've already made a <a href="ball.html">ball</a>,
-         now let's make it move.
-       In order to do so, we'll create a <code>draw()</code> function
-       which wipes the screen, draws the ball, then updates its current
-       position. We'll use a call to 
-       <code>setInterval(function, timeout)</code> in the <code>init()</code>
-       function to tell the browser to run our draw function every 10
-       milliseconds, creating the illusion of movement.
+  La balle est créée, mettons-la en mouvement.<br />
+  Pour ce faire, nous allons créer une fonction <code>draw()</code> qui
+  <ul>
+  <li>vide l'écran ;
+  <li>trace la balle ;
+  <li>met à jour sa position.
+  </ul>
+  <p>Un appel à 
+       <code>setInterval(function, timeout)</code> dans la fonction <code>init()</code>
+       permettra de dire au navigateur d'exécuter la fonction <code>draw()</code> toutes les 10 ms, 
+       créant ainsi l'illusion de mouvement.
 
 explain_after: |
-  Try changing the dx and dy values to change the direction of the ball,
-          or change the x and y variables to change where the ball will start.
-      Make sure to try negative values for dx and dy.
+  Modifiez les valeurs <code>dx</code> et <code>dy</code> pour changer la direction de la balle,
+  ou modifiez les variables <code>x</code> et <code>y</code> pour changer son point de départ.
+  Notez que <code>dx</code> et <code>dy</code> peuvent prendre des valeurs négatives.
   
 
 name: 'move'
 
-title: 'Action'
+title: 'Faire bouger la balle'

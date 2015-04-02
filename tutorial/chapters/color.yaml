@@ -15,7 +15,7 @@ code: |
   ctx.closePath();
   ctx.fill();
   
-  //the rectangle is half transparent
+  // Ce rectangle est à moitié transparent
   ctx.fillStyle = "rgba(255, 255, 0, .5)"
   ctx.beginPath();
   ctx.rect(15, 150, 120, 120);
@@ -23,18 +23,17 @@ code: |
   ctx.fill();
 
 explain_before: |
-  We can also turn our ball different colors. Changing the value of
-    ctx.fillStyle will change the canvas' current color; we can set its value to a hex
-    string of the format <code>'#rrggbb'</code> or to a string 
-    <code>'rgba(r, g, b, a)'</code> where a is a value
-    between 0 and 1 representing the transparency of the color.
+  Nous pouvons ajuster différents paramètres tels que la couleur de la balle.
+  Le format de la valeur de <code>ctx.fillStyle</code> peut être un code couleur hexadécimal
+  de la forme <code>"#rrggbb"</code> ou bien <code>"rgba(r, g, b, alpha)"</code> où
+  <code>r</code>, <code>g</code>, <code>b</code> désignent respectivement les niveaux de rouge, vert, bleu et <code>alpha</code> désigne une valeur
+  de transparence comprise entre 0 et 1.
   
 
 explain_after: |
-  Play around a bit with the colors and the rectangle's alpha value and see
-      how the objects respond.
+  Je vous invite à modifier les couleurs ainsi que le paramètre <code>alpha</code> et à cliquer sur Exécuter pour observer comment se comportent les éléments.
   
 
 name: 'color'
 
-title: 'Add Some Color'
+title: 'Ajouter de la couleur'

@@ -20,18 +20,18 @@ code: |
   
     drawbricks();
   
-    //want to learn about real collision detection? go read
-    // http://www.metanetsoftware.com/technique/tutorialA.html
+    // La balle est-elle rentrée en collision avec une brique ?
     rowheight = BRICKHEIGHT + PADDING;
     colwidth = BRICKWIDTH + PADDING;
     row = Math.floor(y/rowheight);
     col = Math.floor(x/colwidth);
-    //reverse the ball and mark the brick as broken
+    // Si c'est le cas, faire rebondir la balle et marquer la brique comme démolie
     if (y &lt; NROWS * rowheight &amp;&amp; row &gt;= 0 &amp;&amp; col &gt;= 0 &amp;&amp; bricks[row][col] == 1) {
       dy = -dy;
       bricks[row][col] = 0;
     }
-   
+    
+    // On prend en compte la paroi de la balle et non son centre
     if (x + dx + ballr &gt; WIDTH || x + dx - ballr &lt; 0)
       dx = -dx;
   
@@ -39,7 +39,7 @@ code: |
       dy = -dy;
     else if (y + dy + ballr &gt; HEIGHT - paddleh) {
       if (x &gt; paddlex &amp;&amp; x &lt; paddlex + paddlew) {
-        //move the ball differently based on where it hit the paddle
+        // On renvoie la balle différemment selon son lieu d'atterrissage
         dx = 8 * ((x-(paddlex+paddlew/2))/paddlew);
         dy = -dy;
       }
@@ -56,7 +56,7 @@ code: |
 
 name: 'finish'
 
-title: 'Finishing Touches'
+title: 'Touche finale'
 
 library: |
   var x = 25;
@@ -159,9 +159,7 @@ library: |
   
 
 explain_before: |
-  Now we'll add a few finishing touches to our game,
-  like colors, and a more fun paddle collision equation. There's an
-  infinite amount of improvements you could make, so go ahead and try them
-  out.
+  À présent nous apportons quelques touches finales à notre jeu, comme des couleurs, et une meilleure
+  détection de collision pour la raquette. N'hésitez pas à apporter vos propres améliorations au code.
 
 explain_after: ''

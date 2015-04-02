@@ -1,7 +1,7 @@
 order: 4
 
 code: |
-  //BEGIN LIBRARY CODE
+  // Début du code des fonctions de notre bibliothèque
   var x = 150;
   var y = 150;
   var dx = 2;
@@ -35,7 +35,7 @@ code: |
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
   }
   
-  //END LIBRARY CODE
+  // Fin du code des fonctions de notre bibliothèque
   
   function draw() {
     clear();
@@ -50,18 +50,14 @@ code: |
 
 name: 'library'
 
-title: 'Library: an Interlude'
+title: 'Éclaircir le code grâce aux fonctions'
 
 library: '//Nothing here just yet! Check back on the next page.'
 
 explain_before: |
-  Now that we're getting somewhere, our code's getting a bit
-    too big for a single screen, so we'll start sticking some of it into a library
-    of functions to make our lives easier. In future pages, expect the library code
-    to be sitting hidden on the page so that we can focus on our draw() function.
-    <p>Just click on the library tab to review it at any time.
+  Pour nous simplifier la vie, nous allons répartir les lignes de code dans diverses fonctions au nom explicite (<code>circle()</code>, <code>rect()</code>, <code>clear()</code>, etc.).
+  <p>Dorénavant, une bibliothèque de fonctions sera maintenue en arrière-plan pour que nous puissions nous concentrer sur notre fonction <code>draw()</code>. Cliquez sur l'onglet Bibliothèque pour la consulter à tout moment.
 
 explain_after: |
-  See how much simpler the draw() function is now?
-  <p>If you edit the library, the changes will be reflected when you hit
-  "run code", just like they are with the code box right now.
+  Comme vous pouvez le constater, notre fonction <code>draw()</code> est plus lisible.
+  <p>Si vous modifiez la bibliothèque de fonctions, vos changements seront également pris en compte à chaque clic sur Exécuter.

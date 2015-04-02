@@ -153,26 +153,13 @@ hidden_code: |
   initbricks();
 
 explain_before: |
-  Welcome! In this tutorial, we're going to create a breakout
-  clone that you can play in your browser, using javascript and the &lt;canvas&gt; element.
-  <p>In order to use this tutorial, you'll need to have a relatively recent version
-  of <a href="http://mozilla.com/firefox">Firefox</a>, <a
-  href="http://apple.com/safari">Safari</a>, or <a href="http://opera.com">Opera</a>.
-  You cannot use Internet Explorer, because Microsoft has decided not to implement the
-  &lt;canvas&gt; element in it.
-  <p>Before you read any further, click on the "run code" button on the left to
-  play the game that we'll end up creating.
-  <p>On every page, you'll be able to click the "run code" button to run the code
-  we've developed so far. Every page besides this one has an editor in it containing
-  the javascript code that will be run in the same box as the game as soon as you
-  click the button. You can make changes to the code, and see the results
-  instantly by clicking the "run code" button.
-  <p>In order to make our lives easier, I've included the <a
-  href="http://jquery.com">jQuery</a> framework in every page, which extends
-  javascript in your browser with some useful methods.
-  <p>If you have any comments or questions, feel free to leave a comment on the
-  "comments" tab.
-  
+  L'objet de ce tutoriel est de construire un jeu de casse-briques avec JavaScript et la balise canvas.
+  <p>Ce jeu est optimisé pour Firefox, Safari, Opera mais pas Internet Explorer.
+  <p>Avant d'aller plus loin, cliquez sur le bouton Exécuter à gauche pour tester le jeu que nous allons concevoir.
+  <p>Sur chaque page, il sera possible d'exécuter progressivement le code que nous aurons écrit. Chaque page contiendra un éditeur pour modifier le code du jeu en temps réel. Vous pourrez donc modifier le code et voir directement le résultat en recliquant sur Exécuter.
+  <p>Pour simplifier notre travail, nous utiliserons le framework JavaScript <a
+  href="http://jquery.com">jQuery</a>.
+
 
 name: 'index'
 

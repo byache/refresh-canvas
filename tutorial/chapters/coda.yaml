@@ -1,34 +1,25 @@
 order: 11
 
 explain_before: |
-  That's it, Thanks for reading this far! The code presented
-  here is cribbed mostly from a <a
-  href="http://billmill.org/static/refresh-canvas/presentation/index-osf.html">presentation</a>
-  I gave to <a href="http://refreshbmore.org/">Refresh Baltimore</a> in August, 2008.
+  Voilà, merci d'avoir consulté ce tutoriel ! Le code JavaScript présenté ici est tiré d'une <a
+  href="http://billmill.org/static/refresh-canvas/presentation/index-osf.html">présentation</a> donnée
+  par <a href="http://billmill.org">Bill Mill</a> à <a href="http://refreshbmore.org/">Refresh Baltimore</a> en août 2008.
   
-  Some resources you may find helpful if you study canvas more:
-  <ul><li>Mozilla's <a href="https://developer.mozilla.org/en/Drawing_Graphics_with_Canvas">
-  canvas tutorial</a> is excellent, and much more comprehensive than this one.
-  <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element">The
-  Spec</a>. Since it's currently in development, these features may or may not be
-  available in current browsers.
-  <li><a href="http://getfirebug.com/">Firebug</a> is an essential tool for any javascript
-  developer.
+  <p>Bill remercie les communautés ayant développé les outils suivants :
+  <ul>
+  <li><a 
+  href="http://codemirror.net/" target="_blank">CodeMirror</a> pour l'éditeur de texte en ligne tout le long de ce tutoriel ;
+  <li><a 
+  href="http://jquery.com/">jQuery</a> &amp; <a href="http://ui.jquery.com/">jQuery 
+  UI</a> pour nous avoir tant simplifié la vie ;
+  <li><a
+  href="http://www.makotemplates.org/">Mako</a>, le système de templates utilisé par <a href="http://reddit.com">Reddit</a> ainsi que ce tutoriel.
   </ul>
+
+  <p>Le code utilisé pour générer ce tutoriel est <a href="https://github.com/jilljenn/refresh-canvas">disponible sur GitHub</a>, c'est ainsi que j'ai pu le traduire en français.
   
-  <p>Innumerable thanks to <a 
-  href="http://marijn.haverbeke.nl/codemirror/">codemirror</a> for the awesome 
-  text editor in use all over this tutorial, and to <a 
-  href="http://jquery.com/">jQuery</a> and <a href="http://ui.jquery.com/">jQuery 
-  UI</a> for making my life much easier.
-  
-  <p>You can find the code used to generate this tutorial (using the excellent <a
-  href="http://www.makotemplates.org/">mako</a> template library) on <a
-  href="http://github.com/llimllib/refresh-canvas/tree/master/tutorial">github</a>.
-  
-  <p>Feel free to <a href="mailto:bill.mill@gmail.com">drop me a line</a> if you have
-  any comments or questions, or <a href="http://billmill.org">visit my blog</a>.
+  <p>N'hésitez pas à <a href="mailto:vie@jill-jenn.net">m'écrire</a> pour tout commentaire, ou me suivre sur Twitter : <a href="http://billmill.org">@jjvie</a>.
 
 name: 'coda'
 
-title: 'Coda'
+title: 'Remerciements'

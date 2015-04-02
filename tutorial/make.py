@@ -42,8 +42,8 @@ def build():
         page["next"] = pages[i+1]["name"] if i+1 < len(pages) else ""
         page["toc"]  = toc
         file(page["outfilename"], 'w').write(
-             Template(filename="templates/template.mak",
-                      lookup=TemplateLookup(directories=['.'])).render(**page))
+             Template(filename="templates/template.mak", input_encoding='utf-8',
+                      lookup=TemplateLookup(directories=['.'])).render(**page).encode('utf-8'))
 
     copytree("js", "build/js")
 

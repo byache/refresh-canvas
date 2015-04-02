@@ -1,5 +1,6 @@
 <html>
  <head>
+ <meta charset="utf-8" />
   <style type="text/css">
 body, html {
     margin:0;
@@ -140,7 +141,7 @@ $(document).ready(function(){
     <div id="canvascontainer">
          <canvas id="canvas" width="300" height="300"></canvas>
          <div style="text-align:center">
-             <input type="submit" value="run code" id="runButton" disabled/>
+             <input type="submit" value="Exécuter" id="runButton" disabled/>
          </div>
 
          <ol id="toc">
@@ -155,8 +156,8 @@ $(document).ready(function(){
         <div id="tabs">
             <ul>
             <li><a href="#explain"><span>Code</span></a></li>
-            <li><a href="#libraryContainer"><span>Library</span></a></li>
-            <li><a href="#comments"><span>Comments</span></a></li>
+            <li><a href="#libraryContainer"><span>Bibliothèque</span></a></li>
+            <li><a href="#comments"><span>Commentaires</span></a></li>
             </ul>
             <div id="explain">${explain_before}
                 % if code:
@@ -167,10 +168,10 @@ $(document).ready(function(){
                 % endif
                 <p>
                 % if next:
-                    <a href="${next}.html" id="nextLink">next</a>
+                    <a href="${next}.html" id="nextLink">suiv.</a>
                 % endif
                 % if prev:
-                    <a href="${prev}.html" id="prevLink">prev</a><br>
+                    <a href="${prev}.html" id="prevLink">préc.</a><br>
                 % endif
             </div>
 

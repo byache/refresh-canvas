@@ -4,29 +4,29 @@ code: |
   rightDown = false;
   leftDown = false;
   
-  //set rightDown or leftDown if the right or left keys are down
+  // En cas d'appui sur une touche
   function onKeyDown(evt) {
-    if (evt.keyCode == 39) rightDown = true;
-    else if (evt.keyCode == 37) leftDown = true;
+    if (evt.keyCode == 39) rightDown = true; // La touche droite est enfoncée
+    else if (evt.keyCode == 37) leftDown = true; // La touche gauche est enfoncée
   }
   
-  //and unset them when the right or left key is released
+  // En cas de relâchement d'une touche
   function onKeyUp(evt) {
-    if (evt.keyCode == 39) rightDown = false;
-    else if (evt.keyCode == 37) leftDown = false;
+    if (evt.keyCode == 39) rightDown = false; // La touche droite est relâchée
+    else if (evt.keyCode == 37) leftDown = false; // La touche gauche est relâchée
   }
   
-  $(document).keydown(onKeyDown);
-  $(document).keyup(onKeyUp);
+  $(document).keydown(onKeyDown); // Association de nos fonctions aux événements
+  $(document).keyup(onKeyUp);     // correspondants du clavier
          
   function draw() {
     clear();
     circle(x, y, 10);
   
-    //move the paddle if left or right is currently pressed
+    // Déplacer la raquette selon si gauche ou droite est actuellement enfoncée
     if (rightDown) paddlex += 5;
     else if (leftDown) paddlex -= 5;
-    rect(paddlex, HEIGHT-paddleh, paddlew, paddleh);
+    rect(paddlex, HEIGHT-paddleh, paddlew, paddleh); // Traçage de la raquette
    
     if (x + dx &gt; WIDTH || x + dx &lt; 0)
       dx = -dx;
@@ -48,7 +48,7 @@ code: |
 
 name: 'keyboard'
 
-title: 'The Keyboard'
+title: 'Contrôle par le clavier'
 
 library: |
   var x = 150;
@@ -91,18 +91,14 @@ library: |
   }
 
 explain_before: |
-  To add keyboard input to control our paddle, we need
-    to do two things: find out when the left and right arrows have been
-    pressed and move the paddle when they have.
-    <p>In order to receive key events, we'll create one function called
-    onKeyUp and another called onKeyDown, then use a bit of jQuery magic
-    to bind them to the appropriate events.
-    <p>Then, on our way through the draw function, we'll check to see if
-    either arrow is pressed down, and move the paddle accordingly.
-  
+  Pour contrôler notre raquette via le clavier, nous devons faire deux choses :
+  <ul>
+  <li>détecter lorsque les touches gauche et droite sont enfoncées ;
+  <li>et déplacer la raquette lorsque c'est le cas.
+  </ul>
+  <p>Pour gérer ces événements, nous allons créer deux fonctions <code>onKeyDown()</code> (appui sur une touche)
+  et <code>onKeyUp()</code> (relâchement d'une touche) et les associer (via jQuery) aux événements correspondants.
+  <p>Ainsi, dans notre fonction <code>draw()</code>, nous vérifierons si l'une ou l'autre des touches directionnelles est enfoncée et déplacerons la raquette en conséquence.  
 
 explain_after: |
-  Now that we've got a working paddle, animation, and a bouncing ball,
-          we've got something close to a game coming together.
-      <p>On the next page, we'll move support for the keyboard into the
-      library and add support for the mouse in a very similar manner.
+  À présent que nous avons une raquette, une animation, et une balle qui rebondit, notre jeu est presque terminé.

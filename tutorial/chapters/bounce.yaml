@@ -5,9 +5,9 @@ code: |
     clear();
     circle(x, y, 10);
    
-    if (x + dx &gt; WIDTH || x + dx &lt; 0)
+    if (x + dx &gt; WIDTH || x + dx &lt; 0) // Dépassement à droite ou à gauche
       dx = -dx;
-    if (y + dy &gt; HEIGHT || y + dy &lt; 0)
+    if (y + dy &gt; HEIGHT || y + dy &lt; 0) // Dépassement en bas ou en haut
       dy = -dy;
    
     x += dx;
@@ -18,7 +18,7 @@ code: |
 
 name: 'bounce'
 
-title: 'Bounce'
+title: 'Faire rebondir la balle'
 
 library: |
   var x = 150;
@@ -55,9 +55,7 @@ library: |
   }
 
 explain_before: |
-  Our ball can fly, but it runs away too quickly; let's
-    contain it in our box by rebounding off the walls.
+  Notre balle bouge, mais elle sort du cadre. Il faut qu'elle rebondisse sur les parois. Nous devons donc coder notre première détection de collision.
 
 explain_after: |
-  Try to change the draw() function so that the ball accelerates or decelerates
-          every time it hits a wall.
+  Modifiez la fonction <code>draw()</code> de sorte que la balle ralentisse ou accélère à chaque rebondissement.
