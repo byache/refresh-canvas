@@ -1,0 +1,129 @@
+order: 1
+
+library: | 
+  var dx = 2;
+  var dy = 4;
+  var WIDTH;
+  var HEIGHT;
+  var ctx;
+  
+  function init() {
+    // cette fonction permet d'initialiser et de démarer le jeu
+    ctx = $('#canvas')[0].getContext("2d");
+    WIDTH = $("#canvas").width();
+    HEIGHT = $("#canvas").height();
+  }
+  
+  function repeatdraw(n,t) {
+    //répéter draw n fois avec une attente de t ms à chaque fois
+    var rep=0;
+    var time=0;
+    while( rep < n){
+      time=rep*t;
+      setTimeout(draw,time);
+      rep++;
+    }      
+  }  
+  
+  function loopdraw() {
+    // la ligne suivante permet d'exécuter la fonction "draw" toutes les 10 millisecondes !
+    return setInterval(draw, 10);
+  }
+  
+  function circle(x,y,r,color) {
+    //cette fonction permet de tracer un disque (cercle plein), de centre (x,y) et de rayon r
+    //pour mettre la couleur, utiliser le mot anglais entre guillemets simples, 
+    //par exemple 'red' pour la couleur rouge
+    ctx.beginPath();
+    ctx.arc(x, HEIGHT-y, r, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  
+  function clear() {
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.fillStyle='white';
+    ctx.rect(0,0,WIDTH,HEIGHT);
+  }
+  
+  function alea(a,b) {
+    //cette fonction renvoie un nombre entier au hasard compris entre a et b (inclus)
+    return Math.floor(Math.random()*(b+1-a)+a);
+  }
+    
+  function axes() {
+    ctx.beginPath();
+    ctx.moveTo(5,HEIGHT);
+    ctx.lineTo(5,0);
+    ctx.lineTo(0,5);
+    ctx.moveTo(10,5);
+    ctx.lineTo(5,0);
+    ctx.moveTo(0,HEIGHT-5);
+    ctx.lineTo(WIDTH,HEIGHT-5);
+    ctx.lineTo(WIDTH-5,HEIGHT);
+    ctx.moveTo(WIDTH-5,HEIGHT-10);
+    ctx.lineTo(WIDTH,HEIGHT-5);
+    ctx.stroke();
+    ctx.strokeText("300",10,10);
+    ctx.strokeText("300",WIDTH-20,HEIGHT-10);
+    ctx.strokeText("0",10,HEIGHT-10);
+    ctx.endPath();
+  }
+  
+code: | 
+  //les dimensions de la fenêtre du jeu sont : 300x300
+  var x = 150;
+  var y = 150;
+  var h = 1;
+  
+  function draw() {
+    //on efface tout
+    clear();
+    //on dessine un disque rouge centré en (x,y)
+    circle(x, y, 10,'red');
+    //on modifie la valeur de y
+    y = y+h;
+  }
+  
+  init(); //on initialise le jeu
+  loopdraw(); //on répète la fonction "draw" indéfiniment...
+
+explain_before: | 
+  Ci-dessous, la fonction "draw" est la plus importante : c'est elle qui dessine les éléments du jeu.
+  <p>La fonction "init" est indispensable : c'est elle qui permet de créer la zone graphique où il y aura le jeu. Cette zone a pour dimensions : 300x300
+
+explain_after: | 
+  Vous pouvez vous amuser à modifier le code ci-dessus. Vous pouvez utiliser les fonctions suivantes :
+  <br/>- init() 
+  <br/>- repeatdraw(n,t) //répéter draw n fois avec une attente de t ms à chaque fois
+  <br/>- loopdraw()  // exécuter la fonction "draw" toutes les 10 millisecondes !
+  <br/>- circle(x,y,r,'color') //cette fonction permet de tracer un disque (cercle plein), de centre (x,y) et de rayon r
+  <br/>//pour mettre la couleur, utiliser le mot anglais entre guillemets simples, 
+  <br/>//par exemple 'red' pour la couleur rouge
+  <br/>- clear() //cette fonction permet de tout effacer
+  <br/>- alea(a,b) //cette fonction renvoie un nombre entier au hasard compris entre a et b (inclus)
+  <br/>- axes() //permet d'afficher les axes du repère utilisé
+  <p>Quelques exemples de modifications à réaliser : 
+  <br/>1- Comment placer la balle en haut à gauche ? 
+  <br/>2- Comment faire descendre la balle ?
+  <br/>3- Comment faire se déplacer la balle horizontalement ?
+  <br/>4- Comment changer la couleur et le rayon de la balle ?
+  <br/>5- Comment accélérer la balle ?
+  <br/>6- Comment obtenir une balle immobile ?
+  <br/>7- Comment faire en sorte qu'au lieu d'avoir une balle, on ait une large ligne, qui se prolonge de plus en plus ?
+  <br/>8- Comment faire démarrer la balle d'un endroit aléatoire ?
+  <br/>9- Comment donner à la balle une vitesse aléatoire ?
+  <br/>10- Comment faire se déplacer la balle de plus en plus vite ?
+  
+comment:  |
+  Expliquer :
+  <p> "var"
+  <p> "function... {...}"
+  <p> lignes de commentaires : "//..."
+  <p> "(x,y)" : origine et axes du repère (REMARQUE : l'axe des ordonnées est ici dans le sens habituel des mathématiciens, ET PAS dans le sens habituel des informaticiens...) (afficher les axes grâce à "axes()")
+  <p> l'illusion du mouvement est créée par une succession très rapide d'images (changer la vitesse grâce à "repeatdraw(50,600);"
+
+name: '1coord'
+
+title: 'Coordonnées, fonctions'

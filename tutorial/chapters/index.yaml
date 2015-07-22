@@ -1,6 +1,6 @@
 order: 0
 
-hidden_code: |
+library: |
   var x = 25;
   var y = 250;
   var dx = 1.5;
@@ -104,7 +104,8 @@ hidden_code: |
   var paddlecolor = "#FFFFFF";
   var ballcolor = "#FFFFFF";
   var backcolor = "#000000";
-  
+ 
+code: |
   function draw() {
     ctx.fillStyle = backcolor;
     clear();
@@ -153,13 +154,12 @@ hidden_code: |
   initbricks();
 
 explain_before: |
-  L'objet de ce tutoriel est de construire un jeu de casse-briques avec JavaScript et la balise canvas.
-  <p>Ce jeu est optimisé pour Firefox, Safari, Opera mais pas Internet Explorer.
-  <p>Avant d'aller plus loin, cliquez sur le bouton Exécuter à gauche pour tester le jeu que nous allons concevoir.
-  <p>Sur chaque page, il sera possible d'exécuter progressivement le code que nous aurons écrit. Chaque page contiendra un éditeur pour modifier le code du jeu en temps réel. Vous pourrez donc modifier le code et voir directement le résultat en recliquant sur Exécuter.
-  <p>Pour simplifier notre travail, nous utiliserons le framework JavaScript <a
-  href="http://jquery.com">jQuery</a>.
-
+  Nous allons travailler à plusieurs reprises cette année sur la conception de mini jeux vidéos.
+  <p> Vous pouvez tester à gauche un exemple de jeu de "casse-briques" (cliquez sur le bouton "Exécuter"...). Ce jeu est déjà assez compliqué à programmer : nous n'en ferons sans doute pas d'aussi élaborés, mais nous verrons en plusieurs étapes quelques grands principes de sa programmation.
+  <p> Pour cela, nous utiliserons plusieurs notions au programme de mathématique en seconde, au fur et à mesure de l'avancement du travail dans l'année (fonctions, coordonnées, intervalles, vecteurs, fonctions du second degré). Nous découvrirons également quelques notions d'"algorithmique".
+  <p> Cette page internet est optimisée pour les navigateurs Firefox, Safari, Opera mais pas Internet Explorer. Elle est conçue pour vous éviter tous les tracas "techniques" qu'on rencontre en général lorsqu'on fait de la programmation. 
+  <p> Vous pouvez voir ci-dessous un petit extrait du code informatique du jeu de gauche. Si on le modifie et qu'on re-clique sur le bouton "Exécuter", le jeu est modifié. (Par exemple, si on enlève une lettre du mot "function", le jeu ne marche plus !)
+  <p> Le reste du code peut être vu sous l'onglet "Reste du code", mais vous n'aurez en général pas besoin d'y intervenir.
 
 name: 'index'
 

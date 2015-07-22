@@ -1,0 +1,179 @@
+order: 7
+
+code: |
+  var x = 150;
+  var y = 150;
+  var dx = 2;
+  var dy = 4;
+  
+  function draw() {
+    clear();
+    circle(x, y, 10,'black');
+    if( x<0 || x>300 ) dx=-dx;
+    if( y<0 || y>300 ) dy=-dy;
+    x = x+dx;
+    y = y+dy;
+  }
+  
+  init();
+  loopdraw();
+
+name: '7rebond2'
+
+title: 'Jouer avec une balle qui rebondit'
+
+library: |
+  var droite = false;
+  var gauche = false;
+  var haut = false;
+  var bas = false;
+  var WIDTH;
+  var HEIGHT;
+  var ctx;
+  
+  function init() {
+    // cette fonction permet d'initialiser et de démarer le jeu
+    ctx = $('#canvas')[0].getContext("2d");
+    WIDTH = $("#canvas").width();
+    HEIGHT = $("#canvas").height();
+  }
+  
+  function loopdraw() {
+    // la ligne suivante permet d'exécuter la fonction "draw" toutes les 10 millisecondes !
+    return setInterval(draw, 10);
+  }
+  
+  function circle(x,y,r,color) {
+    //cette fonction permet de tracer un disque (cercle plein), de centre (x,y) et de rayon r
+    //pour mettre la couleur, utiliser le mot anglais entre guillemets simples, 
+    //par exemple 'red' pour la couleur rouge
+    ctx.beginPath();
+    ctx.arc(x, HEIGHT-y, r, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  
+  function rect(x,y,w,h,color) {
+    ctx.beginPath();
+    ctx.rect(x-w/2,HEIGHT-(y+h/2),w,h);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  
+  function clear() {
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    ctx.fillStyle='white';
+    ctx.rect(0,0,WIDTH,HEIGHT);
+  }
+  
+  function alea(a,b) {
+    //cette fonction renvoie un nombre entier au hasard compris entre a et b (inclus)
+    return Math.floor(Math.random()*(b+1-a)+a);
+  }
+  
+  function repeatdraw(n,t) {
+    //répéter draw n fois avec une attente de t ms à chaque fois
+    var rep=0;
+    var time=0;
+    while( rep < n){
+      time=rep*t;
+      setTimeout(draw,time);
+      rep++;
+    }      
+  }  
+  
+  function axes() {
+    ctx.beginPath();
+    ctx.moveTo(5,HEIGHT);
+    ctx.lineTo(5,0);
+    ctx.lineTo(0,5);
+    ctx.moveTo(10,5);
+    ctx.lineTo(5,0);
+    ctx.moveTo(0,HEIGHT-5);
+    ctx.lineTo(WIDTH,HEIGHT-5);
+    ctx.lineTo(WIDTH-5,HEIGHT);
+    ctx.moveTo(WIDTH-5,HEIGHT-10);
+    ctx.lineTo(WIDTH,HEIGHT-5);
+    ctx.stroke();
+    ctx.strokeText("300",10,10);
+    ctx.strokeText("300",WIDTH-20,HEIGHT-10);
+    ctx.strokeText("0",10,HEIGHT-10);
+    ctx.endPath();
+  }
+  
+  function explode(cx,cy,color){
+    // Cette fonction affiche une explosion centrée au point de 
+    // coordonnées (x,y).
+    // la couleur est 'color' : par exemple, pour avoir du orange, 
+    // indiquer 'orange'.
+    var spikes=13;
+    var outerRadius=30;
+    var innerRadius=10;
+    var rot=Math.PI/2*3;
+    cy=HEIGHT-cy
+    var xx=cx;
+    var yy=cy;
+    var step=Math.PI/spikes;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy-outerRadius);
+    for(i=0;i<spikes;i++){
+      xx=cx+Math.cos(rot)*outerRadius;
+      yy=cy+Math.sin(rot)*outerRadius;
+      ctx.lineTo(xx,yy);
+      rot+=step;
+      xx=cx+Math.cos(rot)*innerRadius;
+      yy=cy+Math.sin(rot)*innerRadius;
+      ctx.lineTo(xx,yy);
+      rot+=step;
+    }
+    ctx.lineTo(cx,cy-outerRadius);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fillStyle=color;
+    ctx.fill();
+  }
+  
+  function intersect(a1,b1,a2,b2){
+    //renvoie "false" si l'intersection de [a1 a2] et [b1 b2] est vide
+    if(b1<a2 || b2<a1) return false;
+    else return true;
+  }
+
+  function collision(x1,y1,w1,h1,x2,y2,w2,h2){
+    //renvoie "true" si les deux rectangles se rencontrent
+    if( intersect(x1-w1/2,x1+w1/2,x2-w2/2,x2+w2/2) && intersect(y1-h1/2,y1+h1/2,y2-h2/2,y2+h2/2) ) return true;
+    else return false;
+  }
+  
+  // En cas d'appui sur une touche
+  function onKeyDown(evt) {
+    if (evt.keyCode == 37) gauche = true; // La touche gauche est enfoncée
+    else if (evt.keyCode == 38) haut = true; // La touche haut est enfoncée
+    else if (evt.keyCode == 39) droite = true; // La touche droite est enfoncée
+    else if (evt.keyCode == 40) bas = true; // La touche bas est enfoncée
+  }
+  
+  // En cas de relâchement d'une touche
+  function onKeyUp(evt) {
+    if (evt.keyCode == 37) gauche = false; // La touche gauche est enfoncée
+    else if (evt.keyCode == 38) haut = false; // La touche haut est enfoncée
+    else if (evt.keyCode == 39) droite = false; // La touche droite est enfoncée
+    else if (evt.keyCode == 40) bas = false; // La touche bas est enfoncée
+  }
+  
+  $(document).keydown(onKeyDown); // Association de nos fonctions aux événements
+  $(document).keyup(onKeyUp);     // correspondants du clavier
+  
+
+explain_before: |
+  Voilà une fonction qui permet de faire rebondir la balle sur les 4 parois, de façon simple. 
+  <p> Vous pouvez vous amuser à modifier le code de cette fonction (des idées sont données ci-dessous).
+
+explain_after: |
+  - Modifiez la taille de la balle et faites en sorte qu'elle ne soit pas effacée à chaque fois (pour qu'on voit tout son trajet).
+  <br/>- Faites en sorte que la balle ralentisse ou accélère à chaque rebondissement.
+  
+comment:  |
+  

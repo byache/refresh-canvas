@@ -1,10 +1,11 @@
-order: 11
+order: 100
 
 explain_before: |
-  Voilà, merci d'avoir consulté ce tutoriel ! Le code JavaScript présenté ici est tiré d'une <a
-  href="http://billmill.org/static/refresh-canvas/presentation/index-osf.html">présentation</a> donnée
-  par <a href="http://billmill.org">Bill Mill</a> à <a href="http://refreshbmore.org/">Refresh Baltimore</a> en août 2008.
+  Le code JavaScript présenté ici est inspiré d'une <a
+  href="http://jill-jenn.net/conferences/#geometrie-dans-les-jeux-video">présentation</a> donnée
+  par Jill-Jênn Vie aux Journées nationales de l’inspection générale de mathématiques (Dijon), en avril 2015.
   
+  <p>Le code utilisé pour générer ces pages web est <a href="https://github.com/jilljenn/refresh-canvas">disponible sur GitHub</a>. Il a été écrit par <a href="http://billmill.org">Bill Mill</a>.
   <p>Bill remercie les communautés ayant développé les outils suivants :
   <ul>
   <li><a 
@@ -15,11 +16,7 @@ explain_before: |
   <li><a
   href="http://www.makotemplates.org/">Mako</a>, le système de templates utilisé par <a href="http://reddit.com">Reddit</a> ainsi que ce tutoriel.
   </ul>
-
-  <p>Le code utilisé pour générer ce tutoriel est <a href="https://github.com/jilljenn/refresh-canvas">disponible sur GitHub</a>, c'est ainsi que j'ai pu le traduire en français.
   
-  <p>N'hésitez pas à <a href="mailto:vie@jill-jenn.net">m'écrire</a> pour tout commentaire, ou me suivre sur Twitter : <a href="http://billmill.org">@jjvie</a>.
-
 name: 'coda'
 
 title: 'Remerciements'
